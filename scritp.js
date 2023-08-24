@@ -10,20 +10,25 @@ let input = document.querySelector('input');
 
 btn.addEventListener('click', () => {
     const inputt = parseInt(input.value);
-    tentativi.innerHTML += ` ${inputt} `;
-    if (inputt == numberPc) {
-        risultato.innerHTML = `Hai vinto con ${numTen+1} tentativi, resetta il game`
-        btn.disabled = true
-        console.log(input);
-        console.log('numeto tentativi: ', numTen);
-    } else if (inputt !== numberPc && numTen <9) {
-        risultato.innerHTML = 'sbagliato riprova'
-        numTen++
-        console.log('numeto tentativi: ', numTen);
+    if (!isNaN(inputt) && inputt > 0 && inputt < 101) {
+        tentativi.innerHTML += ` ${inputt} `;
+        if (inputt == numberPc) {
+            risultato.innerHTML = `Hai vinto con ${numTen + 1} tentativi, resetta il game`
+            btn.disabled = true
+            console.log(input);
+            console.log('numeto tentativi: ', numTen);
+        } else if (inputt !== numberPc && numTen < 9) {
+            risultato.innerHTML = 'sbagliato riprova'
+            numTen++
+            console.log('numeto tentativi: ', numTen);
 
+        } else {
+            risultato.innerHTML = 'Gioco terminato, clicca resetta'
+            btn.disabled = true
+        }
     } else {
-        risultato.innerHTML = 'Gioco terminato, clicca resetta'
-        btn.disabled = true
+        risultato.innerHTML = 'Amico inserisci un numero compreso tra 1 e 100'
+
     }
 
 })
