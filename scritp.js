@@ -6,6 +6,7 @@ const risultato = document.querySelector('#result');
 let numTen = 0;
 console.log(numberPc);
 
+
 let input = document.querySelector('input');
 
 btn.addEventListener('click', () => {
